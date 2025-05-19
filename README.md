@@ -68,3 +68,33 @@ Dalam eksperimen lanjutan, saya melakukan modifikasi pada konfigurasi port siste
 - Logika aplikasi tidak terpengaruh karena modifikasi hanya terjadi pada level transport
 
 Kesimpulannya, aplikasi chat berbasis WebSocket ini menunjukkan fleksibilitas dalam konfigurasi jaringan sambil mempertahankan integritas fungsionalnya.
+
+### Experiment 2.3: Small changes, add IP and Port
+
+Server side:
+![server side console screenshots](/README-image/server3.png)
+
+Client side:
+![server side console screenshots](/README-image/client3.png)
+
+Dalam pengembangan terbaru, saya telah meningkatkan fungsionalitas sistem chat dengan menerapkan identifikasi asal pesan:
+#### Modifikasi yang Dilakukan
+
+- Pengayaan Data Pesan: Informasi alamat IP dan port pengirim kini disertakan dalam setiap pesan
+- Implementasi Server: Penambahan dilakukan dengan memodifikasi fungsi bcast_tx.send(...)
+- Metadata Komunikasi: Parameter addr yang berisi alamat socket client pengirim diintegrasikan ke dalam struktur pesan
+
+#### Hasil Pengembangan
+
+- Setiap client sekarang dapat melihat identitas teknis (alamat:port) dari pengirim pesan
+- Informasi ini berfungsi sebagai pengenal sementara sebelum implementasi sistem username
+- Antarmuka client diperbaiki dengan penambahan label "Zufar's Computer - From server:" untuk membedakan pesan masuk dengan input lokal
+
+#### Signifikansi Pengembangan
+Eksperimen ini memperlihatkan bagaimana metadata jaringan dapat dimanfaatkan untuk:
+
+- Meningkatkan konteks komunikasi tanpa memerlukan sistem identifikasi kompleks
+- Memberikan kejelasan tentang aliran informasi dalam sistem terdistribusi
+- Mempermudah debugging dan pemantauan interaksi antar-client
+
+Pengembangan ini merupakan langkah awal yang baik menuju sistem identifikasi pengguna yang lebih komprehensif.
